@@ -1,0 +1,20 @@
+APCSATeam Container ClassArray Container 
+ClassDeadlines:Due Monday 25 September 23:59
+Assignment Overview: 
+    1.You will be building a container class using an ARRAY (ONLY) that can hold up to a dozen (min) of your team POCO which should have been a singular product item. 
+    2.Your container must contain CRUDfuncGonality (Create, Read, Update, Delete) within the array. 
+    3.Container must provide all bounds checking and verificaGon, including feedback to the User if they aLempt to operate outside the available array indexes for any CRUD reason.
+
+Equipment:Laptops/Personal Computers or 1:1
+
+SpecificaEons:
+    •Array container
+    •Min 12 product objects
+    •Main must instanEate a single container using full constructor
+    •SEll need all three constructors for the container, using only full
+    •SEll need geKers and seKers including for the array to iniEalize it with valid blank objects•Must have at least three other fields of variant data types•Fully documented
+    •Full CRUD on the Array•Proper camel case variable and method naming
+    
+Total100 Points Minor
+
+GradeDeducGons for:  SubmiTng as Word not PDF, not single PDF, Incomplete, Excessive errors, NO RUN SHEET.No error checking, crashing out of bounds, missing CRUD funcGonality, No documentaGon, no headers, not colorized, etc.
