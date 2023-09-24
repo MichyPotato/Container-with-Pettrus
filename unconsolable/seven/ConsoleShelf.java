@@ -17,14 +17,19 @@ public class ConsoleShelf{
     private String color;
     private Console[] consoleArray;
 
-
+    //set up initial consoleArray with empty values (Michelle Luo)
+    public Console[] consoleInitialization(){
+        Console[] consoleArray = new Console[12]; //need to fill with empty values maybe??????????????????
+        return consoleArray;
+    }
+    
     //default constructor console shelf (Pettrus Konnoth)
     public ConsoleShelf(){
         this.height = 0;
         this.availableSpace = 0;
         this.isFull = false;
         this.color = "black";
-        this.consoleArray = new Console[shelfSize];
+        this.consoleArray = consoleInitialization();
     }
 
     //partial constructor console shelf (Pettrus Konnoth)
@@ -33,7 +38,7 @@ public class ConsoleShelf{
         this.availableSpace = 0;
         this.isFull = false;
         this.color = "black";
-        this.consoleArray = new Console[shelfSize];
+        this.consoleArray = consoleInitialization();
     }
 
     //full constructor console shelf (Michelle Luo)
@@ -42,7 +47,7 @@ public class ConsoleShelf{
         this.availableSpace = availableSpace;
         this.isFull = isFull;
         this.color = color;
-        this.consoleArray = new Console[shelfSize];
+        this.consoleArray = consoleInitialization();
     }
 
     // toString method (Pettrus Konnoth)
