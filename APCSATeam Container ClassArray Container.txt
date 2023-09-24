@@ -10,7 +10,7 @@ Equipment:Laptops/Personal Computers or 1:1
 SpecificaEons:
     •Array container
     •Min 12 product objects
-    •Main must instanEate a single container using full constructor
+    •unconsolable.seven.Main must instanEate a single container using full constructor
     •SEll need all three constructors for the container, using only full
     •SEll need geKers and seKers including for the array to iniEalize it with valid blank objects•Must have at least three other fields of variant data types•Fully documented
     •Full CRUD on the Array•Proper camel case variable and method naming
