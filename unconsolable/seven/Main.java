@@ -12,7 +12,9 @@ public class Main {
     private static int getUserInputForIndex(String message) {
         Scanner inputScanner = new Scanner(System.in);
         System.out.print(message);
-        return inputScanner.nextInt();
+        int intInput = inputScanner.nextInt();
+        inputScanner.close();
+        return intInput;
     }
 
     public static void main(String args[]) {
