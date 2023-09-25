@@ -79,6 +79,9 @@ public class ConsoleShelf {
         // Check if the provided index is valid
         if (index >= 0 && index < 11) {
             // Update the console at the specified index
+            if (consoleArray[index]== null){
+                availableSpace+=1;
+            }
             consoleArray[index] = updatedConsole;
             System.out.println("Console at index " + index + " updated.");
         } else {
