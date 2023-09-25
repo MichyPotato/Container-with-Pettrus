@@ -152,11 +152,22 @@ public class ConsoleShelf {
     // toString method (Pettrus Konnoth)
     @Override
     public String toString(){
-        return "This shelf is " +
+        String s = "This shelf is " +
                 this.height + " inches tall, has " +
                 this.availableSpace + " spaces left, is " +
                 this.isFull + " and is " +
                 this.color + ".";
+        if (this.availableSpace > 0) {
+            // Use a for loop to iterate up to availableSpace
+            s += "\n It also has the following consoles on it: \n";
+            for (int i = 0; i < availableSpace; i++) {
+                s += consoleArray[i];
+            }
+        }else{
+            s += "\nNo Consoles are stored on this Shelf.";
+        }
+
+        return s;
     }
 
 

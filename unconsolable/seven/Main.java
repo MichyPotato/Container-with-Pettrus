@@ -50,18 +50,20 @@ public class Main {
 
     public static void main(String args[]) {
         // Create a ConsoleShelf object
-        ConsoleShelf consoleShelf = new ConsoleShelf();
+        Console[] newConsoleShelf = new Console[12];
+        ConsoleShelf consoleShelf = new ConsoleShelf(1.8, 0, false, "gray", newConsoleShelf);
 
         Scanner userInputObject = new Scanner(System.in);
         int userInput;
 
         do {
-            System.out.println("Choose a CRUD Option for the Container:");
+            System.out.println("Choose a CRUD Option for the Array:");
             System.out.println("1. Create a new Console to be added to the shelf");
             System.out.println("2. Read off all the Consoles on the Shelf");
             System.out.println("3. Update a specific Console on the shelf");
             System.out.println("4. Delete a Console from the shelf");
-            System.out.println("5. Exit");
+            System.out.println("5. Print ConsoleShelf");
+            System.out.println("6. Exit");
 
             userInput = userInputObject.nextInt();
 
@@ -128,7 +130,12 @@ public class Main {
                     }
                 }
 
-                case 5 -> System.out.println("Exiting the program.");
+                case 5 -> {
+                    System.out.println("Printing consoleShelf");
+                    System.out.println(consoleShelf);
+                }   
+
+                case 6 -> System.out.println("exiting program");
 
                 default -> System.out.println("Invalid choice. Please enter a valid option.");
             }
