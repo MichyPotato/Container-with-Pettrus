@@ -77,7 +77,7 @@ public class ConsoleShelf {
     //creating the update method for updating a console on the shelf (Pettrus Konnoth)
     public void update(int index, Console updatedConsole) {
         // Check if the provided index is valid
-        if (index >= 0 && index < availableSpace) {
+        if (index >= 0 && index < 11) {
             // Update the console at the specified index
             consoleArray[index] = updatedConsole;
             System.out.println("Console at index " + index + " updated.");
@@ -86,6 +86,7 @@ public class ConsoleShelf {
             System.out.println("Invalid index. No console updated.");
         }
     }
+
     //creating the delete method for deleting a console from the shelf (Pettrus Konnoth)
     public void delete(int index) {
         // Check if the provided index is valid
@@ -108,7 +109,7 @@ public class ConsoleShelf {
         }
     }
 
-    //creating the getters and setters for the shelf (Michelle Luo)
+    //creating the getters and setters for the shelf (Pettrus Konnoth)
     public double getHeight() {
         return this.height;
     }

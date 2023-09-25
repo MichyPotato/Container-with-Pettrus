@@ -13,8 +13,39 @@ public class Main {
         Scanner inputScanner = new Scanner(System.in);
         System.out.print(message);
         int intInput = inputScanner.nextInt();
-        inputScanner.close();
         return intInput;
+    }
+
+    private static Console newConsole(){
+        Scanner inputConsoleScanner = new Scanner(System.in);
+
+        System.out.print("Enter the name of the console: ");
+        String name = inputConsoleScanner.nextLine();
+
+        System.out.print("Enter the brand of the console (XBOX, PLAYSTATION, NINTENDO, ATARI, SEGA, META): ");
+        String brandStr = inputConsoleScanner.nextLine();
+
+        Brand brand = Brand.valueOf(brandStr.toUpperCase());
+
+        System.out.print("Enter the storage capacity of the console: ");
+        double storage = 0;
+        if (inputConsoleScanner.hasNextDouble()) {
+            storage = inputConsoleScanner.nextDouble();
+        }
+
+        System.out.print("Enter the energy consumption of the console: ");
+        int energyConsumption = 0;
+        if (inputConsoleScanner.hasNextInt()) {
+            energyConsumption = inputConsoleScanner.nextInt();
+        }
+
+        System.out.print("Does it have a color display (true/false): ");
+        boolean hasColorDisplay = false;
+        if (inputConsoleScanner.hasNextBoolean()) {
+            hasColorDisplay = inputConsoleScanner.nextBoolean();
+        }
+        Console newConsole = new Console(name, brand, storage, energyConsumption, hasColorDisplay);
+        return newConsole;
     }
 
     public static void main(String args[]) {
@@ -77,9 +108,10 @@ public class Main {
 
                 case 3 -> {
                     // Implement ConsoleShelf.update()
-                    int indexToUpdate = getUserInputForIndex("Enter the index of the console to update: ");
-                    if (indexToUpdate >= 0 && indexToUpdate < consoleShelf.getAvailableSpace()) {
-                        // Proceed with the update logic here
+                    int indexToUpdate = getUserInputForIndex("Enter the index of the console to update: ") -1;
+                    if (indexToUpdate >= 0 && indexToUpdate < 11) {
+                        //
+                        consoleShelf.update(indexToUpdate,newConsole());
                     } else {
                         System.out.println("Invalid index. No console updated.");
                     }
@@ -101,5 +133,6 @@ public class Main {
                 default -> System.out.println("Invalid choice. Please enter a valid option.");
             }
         } while (userInput != 5);
+        userInputObject.close();
     }
 }
