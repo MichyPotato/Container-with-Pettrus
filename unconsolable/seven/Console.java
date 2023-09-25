@@ -5,6 +5,7 @@
  * Period 7
  */
 
+
 package unconsolable.seven;
 
 public class Console {

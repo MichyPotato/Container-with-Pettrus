@@ -8,7 +8,7 @@ package unconsolable.seven;
 
 import java.util.Arrays;
 
-public class ConsoleShelf{
+public class ConsoleShelf {
 
     //fields for the shelf variable def (Michelle Luo)
     private double height;
@@ -49,6 +49,101 @@ public class ConsoleShelf{
         this.color = color;
         this.consoleArray = consoleInitialization();
     }
+
+    // creating the crud functionality
+
+    // creating the create method for adding consoles to the shelf or thown an error(Pettrus Konnoth)
+    public void createConsole(Console console){
+        if (this.availableSpace<consoleArray.length){
+            this.consoleArray[this.availableSpace] = console;
+            this.availableSpace++;
+        }
+        else{
+            System.out.println("The shelf is full");
+        }
+    }
+    //creating the read method for reading the consoles on the shelf checks if console on shelf and returns the console (Pettrus Konnoth)
+    public void readConsole() {
+        if (this.availableSpace > 0) {
+            // Use a for loop to iterate up to availableSpace
+            for (int i = 0; i < availableSpace; i++) {
+                System.out.println(consoleArray[i]);
+            }
+        } else {
+            System.out.println("There are no consoles on the shelf");
+        }
+    }
+
+    //creating the update method for updating a console on the shelf (Pettrus Konnoth)
+    public void update(int index, Console updatedConsole) {
+        // Check if the provided index is valid
+        if (index >= 0 && index < availableSpace) {
+            // Update the console at the specified index
+            consoleArray[index] = updatedConsole;
+            System.out.println("Console at index " + index + " updated.");
+        } else {
+            // Invalid index provided, provide feedback to the user
+            System.out.println("Invalid index. No console updated.");
+        }
+    }
+    //creating the delete method for deleting a console from the shelf (Pettrus Konnoth)
+    public void delete(int index) {
+        // Check if the provided index is valid
+        if (index >= 0 && index < availableSpace) {
+            // Shift the consoles in the array to remove the console at the specified index
+            for (int i = index; i < availableSpace - 1; i++) {
+                consoleArray[i] = consoleArray[i + 1];
+            }
+            // Set the last slot to null and decrement availableSpace
+            consoleArray[availableSpace - 1] = null;
+            availableSpace--;
+
+            // Update isFull status
+            isFull = (availableSpace == consoleArray.length);
+
+            System.out.println("Console at index " + index + " deleted.");
+        } else {
+            // Invalid index provided, provide feedback to the user
+            System.out.println("Invalid index. No console deleted.");
+        }
+    }
+
+    //creating the getters and setters for the shelf (Michelle Luo)
+    public double getHeight() {
+        return this.height;
+    }
+    public void setHeight(double height) {
+        this.height = height;
+    }
+    public int getAvailableSpace() {
+        return this.availableSpace;
+    }
+    public void setAvailableSpace(int availableSpace) {
+        this.availableSpace = availableSpace;
+    }
+    public boolean getIsFull() {
+        return this.isFull;
+    }
+    public void setIsFull(boolean isFull) {
+        this.isFull = isFull;
+    }
+    public String getColor() {
+        return this.color;
+    }
+    public void setColor(String color) {
+        this.color = color;
+    }
+    public Console[] getConsoleArray() {
+        return this.consoleArray;
+    }
+    public void setConsoleArray(Console[] consoleArray) {
+        this.consoleArray = consoleArray;
+    }
+
+
+
+
+
 
     // toString method (Pettrus Konnoth)
     @Override
