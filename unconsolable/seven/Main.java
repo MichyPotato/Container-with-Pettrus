@@ -9,6 +9,7 @@ import java.util.Scanner;
 
 public class Main {
 
+    //get an integer for the index of Array (Pettrus Konnoth)
     private static int getUserInputForIndex(String message) {
         Scanner inputScanner = new Scanner(System.in);
         System.out.print(message);
@@ -16,6 +17,7 @@ public class Main {
         return intInput;
     }
 
+    //Makes a new Console Object based on user input (Pettrus Konnoth)
     private static Console newConsole(){
         Scanner inputConsoleScanner = new Scanner(System.in);
 
@@ -49,7 +51,7 @@ public class Main {
     }
 
     public static void main(String args[]) {
-        // Create a ConsoleShelf object
+        // Create a ConsoleShelf object (Michelel Luo)
         Console[] newConsoleShelf = new Console[12];
         ConsoleShelf consoleShelf = new ConsoleShelf(1.8, 0, false, "gray", newConsoleShelf);
 
@@ -57,6 +59,7 @@ public class Main {
         int userInput;
 
         do {
+            //CRUD Menu (Michelle Luo)
             System.out.println("Choose a CRUD Option for the Array:");
             System.out.println("1. Create a new Console to be added to the shelf");
             System.out.println("2. Read off all the Consoles on the Shelf");
@@ -68,78 +71,49 @@ public class Main {
             userInput = userInputObject.nextInt();
 
             switch (userInput) {
+                //Create a new Console on the shelf (Pettrus Konnoth) (Michelle Luo cleaned it up)
                 case 1 -> {
-                    // Implement ConsoleShelf.create()
-                    Scanner inputScanner = new Scanner(System.in);
-
-                    System.out.print("Enter the name of the console: ");
-                    String name = inputScanner.nextLine();
-
-                    System.out.print("Enter the brand of the console (XBOX, PLAYSTATION, NINTENDO, ATARI, SEGA, META): ");
-                    String brandStr = inputScanner.nextLine();
-
-                    Brand brand = Brand.valueOf(brandStr.toUpperCase());
-
-                    System.out.print("Enter the storage capacity of the console: ");
-                    double storage = 0;
-                    if (inputScanner.hasNextDouble()) {
-                        storage = inputScanner.nextDouble();
-                    }
-
-                    System.out.print("Enter the energy consumption of the console: ");
-                    int energyConsumption = 0;
-                    if (inputScanner.hasNextInt()) {
-                        energyConsumption = inputScanner.nextInt();
-                    }
-
-                    System.out.print("Does it have a color display (true/false): ");
-                    boolean hasColorDisplay = false;
-                    if (inputScanner.hasNextBoolean()) {
-                        hasColorDisplay = inputScanner.nextBoolean();
-                    }
-
-                    Console newConsole = new Console(name, brand, storage, energyConsumption, hasColorDisplay);
-                    consoleShelf.createConsole(newConsole); // Add the new console to the shelf
+                    // add a new console to the consoleShelf Object 
+                    consoleShelf.createConsole(newConsole()); // Add the new console to the shelf
                     System.out.println("Console added to the shelf.");
                 }
-
+                //Read off all the Consoles on the shelf (Michelle Luo)
                 case 2 -> {
-                    // Implement ConsoleShelf.read()
-                    consoleShelf.readConsole(); // Display all consoles on the shelf
+                    consoleShelf.readConsole();
                 }
-
+                //Update a Console on the Shelf (Pettrus Konnoth and Michelle Luo)
                 case 3 -> {
-                    // Implement ConsoleShelf.update()
                     int indexToUpdate = getUserInputForIndex("Enter the index of the console to update: ") -1;
+                    //if the index is within the twelve limit of a shelf:
                     if (indexToUpdate >= 0 && indexToUpdate < 11) {
-                        //
                         consoleShelf.update(indexToUpdate,newConsole());
                     } else {
                         System.out.println("Invalid index. No console updated.");
                     }
                 }
-
+                //Delete Console on the shelf (Pettrus Konnoth)
                 case 4 -> {
-                    // Implement ConsoleShelf.delete()
                     int indexToDelete = getUserInputForIndex("Enter the index of the console to delete: ");
+                    //if the index is within the numbers of console existing on the shelf:
                     if (indexToDelete >= 0 && indexToDelete < consoleShelf.getAvailableSpace()) {
-                        consoleShelf.delete(indexToDelete); // Delete the console from the shelf
+                        consoleShelf.delete(indexToDelete);
                         System.out.println("Console deleted from the shelf.");
                     } else {
                         System.out.println("Invalid index. No console deleted.");
                     }
                 }
-
+                //Print out the Container Object (Michelle Luo)
                 case 5 -> {
                     System.out.println("Printing consoleShelf");
                     System.out.println(consoleShelf);
                 }   
-
+                //leave the program (Pettrus Konnoth)
                 case 6 -> System.out.println("exiting program");
-
+                //Default (Pettrus Konnoth)
                 default -> System.out.println("Invalid choice. Please enter a valid option.");
             }
         } while (userInput != 5);
+        //Close the system.in connected scanners (Michelle Luo)
         userInputObject.close();
     }
 }

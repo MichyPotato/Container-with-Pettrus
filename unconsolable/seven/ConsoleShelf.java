@@ -4,8 +4,9 @@
  * September 24th
  * Period 7
  */
-package unconsolable.seven;
 
+ //imports
+package unconsolable.seven;
 import java.util.Arrays;
 
 public class ConsoleShelf {
@@ -19,7 +20,7 @@ public class ConsoleShelf {
 
     //set up initial consoleArray with empty values (Michelle Luo)
     public Console[] consoleInitialization(){
-        Console[] consoleArray = new Console[12]; //need to fill with empty values maybe??????????????????
+        Console[] consoleArray = new Console[12];
         return consoleArray;
     }
     
@@ -78,12 +79,14 @@ public class ConsoleShelf {
     public void update(int index, Console updatedConsole) {
         // Check if the provided index is valid
         if (index >= 0 && index < 11) {
-            // Update the console at the specified index
+            // Checks if there is no object to update (Michelle Luo)
             if (consoleArray[index]== null){
-                availableSpace+=1;
-            }
+                System.out.println("No Console to Update Here!");
+            }else{
+            //if there is an object, updates it
             consoleArray[index] = updatedConsole;
             System.out.println("Console at index " + index + " updated.");
+            }
         } else {
             // Invalid index provided, provide feedback to the user
             System.out.println("Invalid index. No console updated.");
@@ -144,11 +147,6 @@ public class ConsoleShelf {
         this.consoleArray = consoleArray;
     }
 
-
-
-
-
-
     // toString method (Pettrus Konnoth)
     @Override
     public String toString(){
@@ -157,6 +155,7 @@ public class ConsoleShelf {
                 this.availableSpace + " spaces left, is " +
                 this.isFull + " and is " +
                 this.color + ".";
+        //Added Printing of COnsoles on ConsoleShelf (Michelle Luo)
         if (this.availableSpace > 0) {
             // Use a for loop to iterate up to availableSpace
             s += "\n It also has the following consoles on it: \n";
