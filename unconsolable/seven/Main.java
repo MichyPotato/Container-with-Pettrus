@@ -67,7 +67,7 @@ public class Main {
             System.out.println("4. Delete a Console from the shelf");
             System.out.println("5. Print ConsoleShelf");
             System.out.println("6. Exit");
-
+            System.out.println("User Input of an above Number:");
             userInput = userInputObject.nextInt();
 
             switch (userInput) {
@@ -75,7 +75,7 @@ public class Main {
                 case 1 -> {
                     // add a new console to the consoleShelf Object 
                     consoleShelf.createConsole(newConsole()); // Add the new console to the shelf
-                    System.out.println("Console added to the shelf.");
+                    System.out.println("Console added to the shelf.\n");
                 }
                 //Read off all the Consoles on the shelf (Michelle Luo)
                 case 2 -> {
